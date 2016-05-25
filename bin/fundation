@@ -1,0 +1,73 @@
+#!/usr/bin/env node
+
+var program = require('commander');
+var mkdirp = require('mkdirp');
+var fs = require('fs');
+var path = require('path');
+
+var pkg = require('../package.json');
+var version = pkg.version;
+
+program
+  .version(version)
+  .parse(process.argv);
+
+// Get the current working directory
+var cwd = program.args.shift() || '.';
+
+// Make all of the folders and files
+mkdir(cwd, function() {
+  write(cwd + '/package.json', template('package.json'));
+  write(cwd + '/app.js', template('app.js'));
+  mkdir(cwd + '/bin', function(){
+    write(cwd + '/bin/www', template('bin/www'), 0677);
+  });
+  mkdir(cwd + '/config');
+  mkdir(cwd + '/controllers', function(){
+    write(cwd + '/controllers/homepage.js', template('controllers/homepage.js'));
+  });
+  mkdir(cwd + '/models', function(){
+    write(cwd + '/models/article.js', template('models/article.js'));
+  });
+  mkdir(cwd + '/public');
+  mkdir(cwd + '/public/ui');
+  mkdir(cwd + '/public/ui/css');
+  mkdir(cwd + '/public/ui/images');
+  mkdir(cwd + '/public/ui/js');
+  mkdir(cwd + '/public/ui/js', function(){
+    write(cwd + '/public/ui/js/common.js', template('ui/js/common.js'));
+  });
+  mkdir(cwd + '/public/ui/less', function(){
+    write(cwd + '/public/ui/less/common.less', template('ui/css/common.less'));
+  });
+  mkdir(cwd + '/views', function(){
+    write(cwd + '/views/homepage.swig', template('views/homepage.swig'));
+    write(cwd + '/views/404.swig', template('views/404.swig'));
+    write(cwd + '/views/500.swig', template('views/500.swig'));
+  });
+  mkdir(cwd + '/views/layouts', function(){
+    write(cwd + '/views/layouts/default.swig', template('views/layouts/default.swig'));
+    write(cwd + '/views/layouts/blank.swig', template('views/layouts/blank.swig'));
+  });
+});
+
+// Reads a file into a string
+function template(name) {
+  return fs.readFileSync(path.join(__dirname, '..', 'templates', name), 'utf-8');
+}
+
+// Writes a file to a given path
+function write(path, str, mode) {
+  fs.writeFileSync(path, str, { mode: mode || 0644 });
+  console.log('   \x1b[36mcreate\x1b[0m : ' + path);
+}
+
+// Creates directories with proper permissions
+// Takes an optional paramter after the folder is made
+function mkdir(path, fn) {
+  mkdirp(path, 0755, function(err){
+    if (err) throw err;
+    console.log('   \033[36mcreate\033[0m : ' + path);
+    if (fn) { fn(); }
+  });
+}

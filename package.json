@@ -1,0 +1,36 @@
+{
+  "name": "fundation-generator",
+  "description": "Fundation application generator",
+  "version": "0.0.2",
+  "author": "Alexander Chan <fundation@nonstopcoder.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fundation/generator.git"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "commander": "2.9.0",
+    "mkdirp": "0.5.1"
+  },
+  "main": "bin/express",
+  "bin": {
+    "fundation": "./bin/fundation"
+  },
+  "engines": {
+    "node": ">= 0.10"
+  },
+  "bugs": {
+    "url": "https://github.com/fundation/generator/issues"
+  },
+  "homepage": "https://github.com/fundation/generator#readme",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "files": [
+    "LICENSE",
+    "README.md",
+    "bin/",
+    "templates/"
+  ]
+}
