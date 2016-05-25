@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 var debug          = require('debug')('workers');
 var cluster        = require('cluster');
-var chalk          = require('chalk');
 
 //
 // http://nodejs.org/api/cluster.html

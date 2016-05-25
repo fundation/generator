@@ -8,7 +8,7 @@ var app            = require('express')();
 app.use(fundation.init());
 
 // Start the server
-var port = process.env.PORT || 80;
+var port = process.env.PORT || 8080;
 app.listen(port, function(err) {
   if ( err ) {
     console.log(err);
