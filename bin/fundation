@@ -22,7 +22,9 @@ mkdir(cwd, function() {
   mkdir(cwd + '/bin', function(){
     write(cwd + '/bin/www', template('bin/www'), 0677);
   });
-  mkdir(cwd + '/config');
+  mkdir(cwd + '/config', function(){
+    write(cwd + '/config/config.js', template('config/config.js'));
+  });
   mkdir(cwd + '/controllers', function(){
     write(cwd + '/controllers/homepage.js', template('controllers/homepage.js'));
   });
