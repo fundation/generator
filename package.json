@@ -1,7 +1,7 @@
 {
   "name": "fundation-generator",
   "description": "Fundation application generator",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "author": "Alexander Chan <fundation@nonstopcoder.com>",
   "repository": {
     "type": "git",
@@ -10,7 +10,7 @@
   "license": "MIT",
   "dependencies": {
     "commander": "2.9.0",
-    "mkdirp": "0.5.1"
+    "ncp": "2.0.0"
   },
   "main": "bin/express",
   "bin": {
