@@ -17,6 +17,7 @@ var cwd = program.args.shift() || '.';
 
 // Make all of the folders and files
 mkdir(cwd, function() {
+  write(cwd + '/.gitignore', template('gitignore'));
   write(cwd + '/package.json', template('package.json'));
   write(cwd + '/app.js', template('app.js'));
   mkdir(cwd + '/bin', function(){
