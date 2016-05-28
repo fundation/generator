@@ -12,11 +12,12 @@
   "dependencies": {
     "nodemon": "1.9.2",
     "express": "4.13.4",
-    "fundation": "0.0.4",
+    "fundation": "0.0.6",
+    "debug": "2.2.0",
     "lodash": "4.13.1",
     "moment": "2.13.0",
     "request": "2.72.0",
-    "debug": "2.2.0"
+    "browser-request": "0.3.3"
   },
   "devDependencies": {
     "mocha": "2.5.3",

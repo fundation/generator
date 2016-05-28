@@ -1,7 +1,8 @@
 module.exports = {
   browserify: [
     'lodash',
-    'moment'
+    'moment',
+    'browser-request'
   ],
   files: [
   ]

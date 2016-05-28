@@ -18,6 +18,7 @@ var cwd = program.args.shift() || '.';
 // Make all of the folders and files
 mkdir(cwd, function() {
   write(cwd + '/.gitignore', template('gitignore'));
+  write(cwd + '/.editorconfig', template('.editorconfig'));
   write(cwd + '/package.json', template('package.json'));
   write(cwd + '/app.js', template('app.js'));
   mkdir(cwd + '/bin', function(){
@@ -28,6 +29,7 @@ mkdir(cwd, function() {
   });
   mkdir(cwd + '/controllers', function(){
     write(cwd + '/controllers/homepage.js', template('controllers/homepage.js'));
+    write(cwd + '/controllers/statics.js', template('controllers/statics.js'));
   });
   mkdir(cwd + '/models', function(){
     write(cwd + '/models/article.js', template('models/article.js'));
@@ -39,12 +41,14 @@ mkdir(cwd, function() {
   mkdir(cwd + '/public/ui/js');
   mkdir(cwd + '/public/ui/js', function(){
     write(cwd + '/public/ui/js/common.js', template('ui/js/common.js'));
+    write(cwd + '/public/ui/js/test.js', template('ui/js/test.js'));
   });
   mkdir(cwd + '/public/ui/less', function(){
     write(cwd + '/public/ui/less/common.less', template('ui/css/common.less'));
   });
   mkdir(cwd + '/views', function(){
     write(cwd + '/views/homepage.swig', template('views/homepage.swig'));
+    write(cwd + '/views/test.swig', template('views/test.swig'));
     write(cwd + '/views/404.swig', template('views/404.swig'));
     write(cwd + '/views/500.swig', template('views/500.swig'));
   });
