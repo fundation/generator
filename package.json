@@ -1,7 +1,7 @@
 {
   "name": "fundation-generator",
   "description": "Fundation application generator",
-  "version": "0.0.15",
+  "version": "0.0.16",
   "author": "Alexander Chan <fundation@nonstopcoder.com>",
   "repository": {
     "type": "git",

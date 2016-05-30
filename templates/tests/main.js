@@ -18,10 +18,10 @@ describe('Homepage Route', function(){
         response = res;
         done();
     });
- });
+  });
 
- it('should return a 200', function(){
-   assert.equal(response.status, 200);
- });
+  it('should return a 200', function(){
+    assert.equal(response.status, 200);
+  });
 
 });
