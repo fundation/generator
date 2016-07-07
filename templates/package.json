@@ -12,7 +12,7 @@
   "dependencies": {
     "nodemon": "1.9.2",
     "express": "4.14.0",
-    "fundation": "0.0.15",
+    "fundation": "0.0.28",
     "debug": "2.2.0",
     "vue": "1.0.25",
     "lodash": "4.13.1",
